@@ -1,0 +1,48 @@
+{# Footer #}
+<section class="section8">
+    <div class="inner">
+        <div class="footerLeft">
+            
+            <div class="titre">
+                <h3>besoin de renseignements ?</h3>
+                <h2>Contactez-nous</h2>
+            </div>
+
+            <div class="footerLeftInfos">
+                {{ render(controller('App\\Controller\\BlockController::view', {id: 2} )) }}
+            </div>
+
+            <div class="footerLeftCol">
+                <i class="fas fa-map-marker-alt"></i> 
+                {{ render(controller('App\\Controller\\BlockController::view', {id: 3} )) }}
+            </div>
+            <div class="footerLeftCol">
+                <i class="fas fa-envelope"></i>
+                {{ render(controller('App\\Controller\\BlockController::view', {id: 4} )) }}
+            </div>
+            <div class="footerLeftCol">
+                <i class="fas fa-phone-alt"></i>
+                {{ render(controller('App\\Controller\\BlockController::view', {id: 5} )) }}
+            </div>
+            <div class="footerLeftCol">
+                <i class="fas fa-clock"></i>
+                {{ render(controller('App\\Controller\\BlockController::view', {id: 6} )) }}
+            </div>
+
+        </div>
+
+        <div class="footerRight">
+            {{ render(controller('App\\Controller\\ContactController::index')) }}
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</section>
+
+{# Carte Google #}
+<section class="section9">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.0251037201315!2d4.672947563908033!3d44.72127041199526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b539375861d361%3A0xe444ada645773a7!2sDomaine%20de%20Sabatas!5e1!3m2!1sfr!2sfr!4v1692728729832!5m2!1sfr!2sfr" width="100%" height="590" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <img src="{{ asset('img/background-top-map.png') }}">
+
+    <a href="https://www.google.com/maps/dir//406+Chem.+de+la+Gibeci%C3%A8re,+07210+Chom%C3%A9rac/@44.7216488,4.6714227,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x12b539a6650bcd4f:0xfd7696f787d4766!2m2!1d4.674003!2d44.721645!3e0?authuser=0&entry=ttu" target="_blank" class="btn large">Venez nous voir</a>
+</section>

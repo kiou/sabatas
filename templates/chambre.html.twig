@@ -1,0 +1,153 @@
+{% extends 'app/layout.html.twig' %}
+
+{% block title %} <title>{{ chambre.nom }}</title>{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:title" content="{{ chambre.nom }}">
+    <meta property="og:url" content="https//domaine-de-sabatas.fr/{{app.request.getBaseURL() ~ path('app_chambre_view',{'slug': chambre.slug, 'id': chambre.id})}}">
+    <meta property="og:image" content="https//domaine-de-sabatas.fr/{{ asset('img/upload/' ~ chambre.imageContenu1) }}">
+{% endblock %}
+
+{% block content %}
+
+    {# En tête Page #}
+    <section class="headerPage">
+        <div class="inner">
+            <div class="headerPageContent"  style="background-image: url({{ asset('img/upload/' ~ chambre.imageChambre1) }});">
+                <img src="{{ asset('img/upload/' ~ chambre.imageChambre1) }}">
+                <div class="headerPageTitle">
+                    <div>
+                        <h1>{{ chambre.nom }}</h1>
+                        <a href="#" class="btn large linknav" data-nav=".section8">CONTACTEZ NOUS</a>
+                    </div>
+                </div>
+                <img src="{{ asset('img/back-bottom-header.png') }}" class="headerPageBottom">
+            </div>
+        </div>
+    </section>
+
+    {# Détails de la chambre #}
+    <section class="section10">
+        <div class="inner">
+            <div class="chambreDetail">
+                <p>Taille de la chambre</p>
+                <h3>{{ chambre.taille }}</h3>
+            </div>
+
+            <div class="chambreDetail">
+                <p>Nombre de lits</p>
+                <h3>{{ chambre.lit }}</h3>
+            </div>
+
+            <div class="chambreDetail">
+                <p>Capacité d'hebergement</p>
+                <h3>{{ chambre.capacite }}</h3>
+            </div>
+            
+            {% if chambre.vue is not null %}
+                <div class="chambreDetail">
+                    <p>Vue</p>
+                    <h3>{{ chambre.vue }}</h3>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    {# Histoire de la chambre #}
+    <section class="section11">
+        <div class="inner">
+
+            <div class="section11Left">
+                <h2>Détails de l'hébergement</h2>
+
+                <div class="section11LeftContent">
+                    {{ chambre.contenu|raw }}
+                </div>
+
+                <a href="#" class="btn linknav" data-nav=".section8">Contactez nous</a>
+            </div>
+
+            <div class="section11Right">
+                <img src="{{ asset('img/upload/' ~ chambre.imageContenu1) }}" class="imageContenu1">
+                <img src="{{ asset('img/upload/' ~ chambre.imageContenu2) }}" class="imageContenu2">
+            </div>
+
+        </div>
+    </section>
+
+    {# Galerie d'image #}
+    <section class="section12">
+        <div class="inner">
+
+            <div class="titre center">
+                <h3>Nuits douces à la ferme</h3>
+                <h2>photos de la chambre</h2>
+            </div>
+
+            <div class="owl-fore owl-carousel owl-theme">
+                {% if chambre.imageChambre1 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre1) }}" data-lightbox="image-1" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre1) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre2 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre2) }}" data-lightbox="image-2" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre2) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre3 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre3) }}" data-lightbox="image-3" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre3) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre4 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre4) }}" data-lightbox="image-4" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre4) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre5 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre5) }}" data-lightbox="image-5" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre5) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre6 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre6) }}" data-lightbox="image-6" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre6) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre7 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre7) }}" data-lightbox="image-7" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre7) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre8 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre8) }}" data-lightbox="image-8" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre8) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre9 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre9) }}" data-lightbox="image-9" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre9) }}">
+                    </div>
+                {% endif %}
+                {% if chambre.imageChambre10 is not empty %}
+                    <div> 
+                        <a href="{{ asset('img/lightbox/' ~ chambre.imageChambre10) }}" data-lightbox="image-10" class="chambreLightboxBtn flag">agrandir</a>
+                        <img src="{{ asset('img/miniature/' ~ chambre.imageChambre10) }}">
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

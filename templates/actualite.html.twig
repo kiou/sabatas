@@ -1,0 +1,37 @@
+{% extends 'app/layout.html.twig' %}
+
+{% block title %} <title>{{ actualite.title }}</title>{% endblock %}
+{% block metadescription %} <meta name="description" content="{{ actualite.resume }}">{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:title" content="CONTENT - {{ actualite.title }}">
+    <meta property="og:description" content="{{ actualite.resume }}">
+    <meta property="og:url" content="https//domaine-de-sabatas.fr/{{app.request.getBaseURL() ~ path('app_actualites_view',{'slug': actualite.slug, 'id': actualite.id})}}">
+    <meta property="og:image" content="https//domaine-de-sabatas.fr/{{ asset('img/miniature/' ~ actualite.image) }}">
+{% endblock %}
+
+{% block content %}
+
+    {# En tête Page #}
+    <section class="headerPage">
+        <div class="inner">
+            <div class="headerPageContent" style="background-image: url({{ asset('img/upload/' ~ actualite.image) }});">
+                <img src="{{ asset('img/upload/' ~ actualite.image) }}">
+                <div class="headerPageTitle">
+                    <div>
+                        <h1>{{ actualite.title }}</h1>
+                    </div>
+                </div>
+                <img src="{{ asset('img/back-bottom-header.png') }}" class="headerPageBottom">
+            </div>
+        </div>
+    </section>
+
+    {# Contenu d'une page #}
+    <section class="pageContent">
+        <div class="inner">
+            {{ actualite.contenu|raw }}
+        </div>
+    </section>
+
+{% endblock %}

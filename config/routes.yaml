@@ -1,0 +1,32 @@
+app_index:
+    path: /
+    controller: App\Controller\GlobalController::index
+
+app_logout:
+    path: /logout
+
+app_actualites:
+    path: /actualites/{categorie}
+    controller: App\Controller\ActualiteController::index
+    defaults:
+        categorie: 'all'
+    requirements:
+        categorie: ([a-z-0-9]*)
+
+app_actualites_view:
+    path: /actualite/{slug}/{id}
+    defaults: { _controller: App\Controller\ActualiteController::view }
+    requirements:
+        slug: ([a-z-0-9]*)
+        id: \d+
+
+app_chambre_view:
+    path: /chambre/{slug}/{id}
+    defaults: { _controller: App\Controller\ChambreController::view }
+    requirements:
+        slug: ([a-z-0-9]*)
+        id: \d+
+
+sendcontact:
+    path: /contact-validation
+    controller: App\Controller\ContactController::send

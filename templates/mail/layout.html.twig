@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre E-mail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0px;
+            padding: 0px;
+        }
+        table {
+            max-width: 800px;
+            margin: 0px auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background-color: #333333;
+            padding: 20px 0px;
+            text-align: center;
+        }
+        .header h2 {
+            color: #ffffff;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .footer {
+            background-color: #333333;
+            padding: 10px 0px;
+            text-align: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td class="header">                
+                {% if categoriedata == 'gite'%}
+                    <h2>Demande de Gîte</h2>
+                {% else %}
+                    <h2>Demande de Chambre d'hôte</h2> 
+                {% endif %}            
+            </td>
+        </tr>
+        <tr>
+            <td class="content">
+                <p><strong>Nom Prénom:</strong> {{ nomdata }}</p>
+                <p><strong>Email:</strong> {{ emaildata }}</p>
+                <p><strong>Date de votre arrivée:</strong> {{ arriveedata }}</p>
+                <p><strong>Date de votre départ:</strong> {{ departdata }}</p>
+                <p><strong>Hebergement :</strong> {{ hebergementdata }}</p>
+                <p><strong>Message:</strong></p>
+                <p>{{ messagedata }}</p>
+                <br>
+                <p><a href="mailto:{{ emaildata }}">Répondre à {{ nomdata }}</a></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer">
+                <p>&copy; {{ 'now' | date('Y') }} Domaine de Sabatas</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

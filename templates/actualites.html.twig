@@ -1,0 +1,41 @@
+{% extends 'app/layout.html.twig' %}
+
+{% block title %} <title>Nos actualités</title>{% endblock %}
+{% block metadescription %} <meta name="description" content="CONTENT">{% endblock %}
+
+{% block content %}
+    {# Contenu d'une page liste #}
+    <section class="pageListe">
+        <div class="inner">
+
+            <div class="titre center">
+                <h1>Nos actualités</h1>
+                <h3>Découvrez La ferme de Sabatas en image</h3>
+            </div>  
+
+            <div class="categories">
+                <ul>
+                    <li><a href="/actualites/all">Tous</a></li>
+                    {% for categorie in categories %} 
+                        <li><a href="{{ path('app_actualites',{categorie: categorie})}}">{{ get_categorie(categorie) }}</a></li> 
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="actualites">
+                {% for actualite in actualites %}
+                    <div class="actualite">
+                        <img src="{{ asset('img/miniature/' ~ actualite.image) }}" class="imageActualite">
+
+                        <span class="actualiteCategorie flag">{{ get_categorie(actualite.categorie) }}</span>
+
+                        <div class="actualiteTitre">
+                            <h3><a href="{{ path('app_actualites_view',{'slug': actualite.slug, 'id': actualite.id})}}">{{ actualite.title|u.truncate(40, '...' ) }}</a></h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

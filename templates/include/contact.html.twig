@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+
+    {{ form_errors(form) }}
+
+        <div class="form-error">
+            {{ form_errors(form.nom) }}
+        </div>
+        {{ form_row(form.nom) }}
+
+        <div class="form-error">
+            {{ form_errors(form.email) }}
+        </div>
+        {{ form_row(form.email) }}
+
+        <div class="form-error">
+            {{ form_errors(form.arrivee) }}
+        </div>
+        {{ form_row(form.arrivee) }}
+
+        <div class="form-error">
+            {{ form_errors(form.depart) }}
+        </div>
+        {{ form_row(form.depart) }}
+
+        <div class="form-error">
+            {{ form_errors(form.categorie) }}
+        </div>
+        {{ form_row(form.categorie) }}
+
+        <div class="form-error">
+            {{ form_errors(form.hebergement) }}
+        </div>
+        {{ form_row(form.hebergement) }}
+
+        <div class="form-error">
+            {{ form_errors(form.message) }}
+        </div>
+        {{ form_row(form.message) }}
+
+        <div class="formsend">
+            {{ form_row(form.Envoyer) }}
+        </div>
+
+    {{ form_rest(form) }}
+
+{{ form_end(form) }}

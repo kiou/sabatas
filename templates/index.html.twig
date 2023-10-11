@@ -1,0 +1,170 @@
+{% extends 'app/layout.html.twig' %}
+
+{% block content %}
+
+    {# En tête #}
+    <section class="section1">
+        <div class="inner">
+            <div class="headerSite"  style="background-image: url({{ asset('img/upload/' ~ header.image) }});">
+                <img src="{{ asset('img/upload/' ~ header.image) }}">
+                <div class="headerSlide">
+                    <div>
+                        <div class="headerContent">
+                            <h3>chambres d'hôtes & gîte</h3>
+                            <h1><span>Domaine de</span><br>Sabatas</h1>
+                            <a href="#" class="btn large linknav" data-nav=".section8">CONTACTEZ NOUS</a>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('img/back-bottom-header.png') }}" class="headerBottom">
+            </div>
+        </div>
+    </section>
+
+    {# Chapo #}
+    <section class="section2">
+
+        <div class="inner">
+            <img src="{{ asset('img/logo-chapo.svg') }}">
+            {{ render(controller('App\\Controller\\BlockController::view', {id: 1} )) }}
+        </div>
+
+    </section>
+
+    {# Chambre d'hote #}
+    <section class="section3" id="chambres">
+        <div class="inner">
+
+            <div class="titre">
+                <h3>nos hebergements</h3>
+                <h2>Nos chambres d'hôtes</h2>
+            </div>
+
+            <div class="owl-one owl-carousel owl-theme">
+                {% for hote in hotes %}
+                    <div>
+                        <img src="{{ asset('img/miniature/' ~ hote.imageChambre1) }}" class="imageSlide">
+                        <div class="slideContent">
+                            <div class="slideInfos">
+                                <h3><a href="{{ path('app_chambre_view',{'slug': hote.slug, 'id': hote.id})}}">{{ hote.nom }}</a></h3>
+                                <p>{{ hote.taille }} / {{ hote.capacite }}</p>
+                            </div>
+
+                            <div class="slidePrix">
+                                <h3>{{ hote.prix }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    {# Gite #}
+    <section class="section4">
+        <div class="inner">
+
+            <div class="titre">
+                <h3>nos hebergements</h3>
+                <h2>Notre gîte</h2>
+            </div>
+
+            <div class="owl-two owl-carousel owl-theme">
+                {% for gite in gites %}
+                    <div>
+                        <img src="{{ asset('img/miniature/' ~ gite.imageChambre1) }}" class="imageSlide">
+                        <div class="slideContent">
+                            <div class="slideInfos">
+                                <h3><a href="{{ path('app_chambre_view',{'slug': gite.slug, 'id': gite.id})}}">{{ gite.nom }}</a></h3>
+                                <p>{{ gite.taille }} / {{ gite.capacite }}</p>
+                            </div>
+
+                            <div class="slidePrix">
+                                <h3>{{ gite.prix }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    {# Actualités #}
+    <section class="section5">
+        <div class="inner">
+
+            <div class="titre">
+                <h3>Quelques petites idées</h3>
+                <h2>Toutes nos actus</h2>
+
+                <a href="{{ path('app_actualites') }}" class="btn">voir nos actus</a>
+            </div>
+
+            <div class="categories">
+                <ul>
+                    <li><a href="{{ path('app_actualites') }}">Tous</a></li>
+                    {% for categorie in categories %} 
+                        <li><a href="{{ path('app_actualites',{categorie: categorie})}}">{{ get_categorie(categorie) }}</a></li> 
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="actualites">
+                {% for actualite in actualites %}
+                    <div class="actualite">
+                        <img src="{{ asset('img/miniature/' ~ actualite.image) }}" class="imageActualite">
+
+                        <span class="actualiteCategorie flag">{{ get_categorie(actualite.categorie) }}</span>
+
+                        <div class="actualiteTitre">
+                            <h3><a href="{{ path('app_actualites_view',{'slug': actualite.slug, 'id': actualite.id})}}">{{ actualite.title|u.truncate(40, '...' ) }}</a></h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    {# Mise en avant #}
+    <section class="section6">
+        <div class="inner">
+            <div class="section6Content">
+                {{ render(controller('App\\Controller\\BlockController::view', {id: 7} )) }}
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </section>
+
+    {# Temoignage #}
+    <section class="section7">
+        <div class="inner">
+
+            <div class="titre center">
+                <h3>témoignages</h3>
+                <h2>Nos clients témoignent</h2>
+            </div>
+
+            <div class="owl-three owl-carousel owl-theme">
+                {% for temoignage in temoignages %}
+                    <div>
+                        <div class="slideContent">
+                            <div class="slideInfos">
+                                <p>{{ temoignage.contenu }}</p>
+
+                                <div class="slideAvatar">
+                                    <p>{{ temoignage.prenom|first ~' '~ temoignage.nom|first}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+            
+{% endblock %}

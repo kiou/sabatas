@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title %} <title>Domaine de Sabatas</title>{% endblock %}
+
+    {% block opengraph %}
+        <meta property="og:title" content="Domaine de Sabatas">
+        <meta property="og:description" content="Stéphanie et David seront heureux de vous accueillir dans leur ancienne ferme, au calme, à la campagne avec les vaches, les chevaux, les moutons et nos poules... Avec des départs de rando depuis la maison.">
+        <meta property="og:url" content="https://domaine-de-sabatas.fr">
+        <meta property="og:image" content="https://domaine-de-sabatas.fr{{ asset('img/ogsite.jpg') }} ">
+    {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lightbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <script src="https://kit.fontawesome.com/b350f69ae8.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/lightbox.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+</head>
+<body>
+    
+    <main class="content">
+
+        {{ include('include/flash.html.twig') }}
+
+        {{ include('include/menu.html.twig') }}
+
+        {% block content %}
+
+        {% endblock %}
+
+        {{ include('include/footer.html.twig') }}
+    </main>
+
+    {% block script %}
+
+    {% endblock %}
+
+</body>
+</html>

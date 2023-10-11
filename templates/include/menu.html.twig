@@ -1,0 +1,59 @@
+<nav class="navigation">
+
+    <div class="inner">
+
+        <div class="navigationMenuLeft">
+            <ul>
+                {% if action is defined %}
+                    <li><a href="#" class="linknav" data-nav=".content">ACCUEIL</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_index') }}">ACCUEIL</a></li>
+                {% endif %}
+                <li><a href="{{ path('app_actualites') }}">NOS ACTUALITES</a></li>
+            </ul>
+        </div>
+
+        <div class="navigationMenuLogo">
+            {% if action is defined %}
+                <a href="#" class="linknav" data-nav=".content"><img src="{{ asset('img/logo-domaine-de-sabatas.png') }}"></a>
+            {% else %}
+                <a href="{{ path('app_index') }}"><img src="{{ asset('img/logo-domaine-de-sabatas.png') }}"></a>
+            {% endif %}
+        </div>
+
+        <div class="navigationMenuRight">
+            <ul>
+                {% if action is defined %}
+                    <li><a href="#" class="linknav" data-nav=".section3">NOS HEBERGEMENTS</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_index') }}#chambres">NOS HEBERGEMENTS</a></li>
+                {% endif %}
+                
+                <li><a href="#" class="linknav" data-nav=".section8">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="navigationRightMobileMenu">
+            <button class="menu-btn" id="menu-btn">
+                <span class="menu-btn__line"></span>
+                <span class="menu-btn__line"></span>
+                <span class="menu-btn__line"></span>
+            </button>
+        </div>
+
+        <div class="mobilemenucontent">
+            {% if action is defined %}
+                <a href="#" class="linknav" data-nav=".content">ACCUEIL</a>
+                <a href="#" class="linknav" data-nav=".section3">NOS HEBERGEMENTS</a>
+            {% else %}
+                <a href="{{ path('app_index') }}">ACCUEIL</a>
+                <a href="{{ path('app_index') }}#chambres">NOS HEBERGEMENTS</a>
+            {% endif %}
+            <a href="{{ path('app_actualites') }}">NOS ACTUALITES</a>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+    
+</nav>
